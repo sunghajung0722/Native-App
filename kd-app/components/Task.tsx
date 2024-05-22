@@ -1,6 +1,6 @@
 import AntDesign from '@expo/vector-icons/AntDesign';
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, TouchableOpacity, View, Image } from 'react-native';
+import { StyleSheet, TextInput, View, Image } from 'react-native';
 
 interface Task {
     addTask: (task: string) => void;
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
         borderRadius: 5,
         marginTop: 20,
-        marginHorizontal: 30,
+        marginHorizontal: 24,
         flexDirection: 'row',
         alignItems: 'center',
     },
