@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 
 
@@ -12,7 +12,9 @@ export function Header({ tasksCounter }: HeaderProps) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.tasksCounter}></Text>
+            <TouchableOpacity>
+                <Text style={styles.imageContainer} ></Text>
+            </TouchableOpacity>
             <View style={styles.tasks}>
                 <Text style={styles.tasksCounter}></Text>
                 <Text style={styles.tasksCounterBold}></Text>
@@ -22,9 +24,10 @@ export function Header({ tasksCounter }: HeaderProps) {
 }
 
 const styles = StyleSheet.create({
+
     container: {
         paddingHorizontal: 24,
-        paddingBottom: 150,
+        paddingBottom: 120,
         backgroundColor: '#57606a',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -37,11 +40,13 @@ const styles = StyleSheet.create({
     tasksCounter: {
         fontSize: 15,
         color: '#FFF',
-        fontFamily: 'Inter-Regular',
     },
     tasksCounterBold: {
         fontSize: 15,
         color: '#FFF',
-        fontFamily: 'Inter-Bold',
+    },
+    imageContainer: {
+        marginTop: 60,
+        fontFamily: 'Roboto-Bold'
     }
 });

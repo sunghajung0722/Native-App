@@ -19,10 +19,8 @@ export function Task({ task }) {
                 text={task.text}
                 iconStyle={{ borderColor: "red" }}
                 innerIconStyle={{ borderWidth: 2 }}
-                textStyle={{ fontFamily: "JosefinSans-Regular" }}
                 onPress={(isChecked: boolean) => { console.log(isChecked) }}
             />
-
 
 
         </View>
