@@ -1,19 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { useFonts } from 'expo-font';
+import logoImg from '../assets/images/react-logo.png';
 
 
 
-interface HeaderProps {
-    tasksCounter: number;
-}
+export function Header() {
 
-export function Header({ tasksCounter }: HeaderProps) {
-    const tasksCounterText = tasksCounter === 1 ? '' : ''
 
     return (
         <View style={styles.container}>
             <TouchableOpacity>
-                <Text style={styles.imageContainer} ></Text>
+                <Text source={logoImg} style={styles.imageContainer} >TODO</Text>
             </TouchableOpacity>
             <View style={styles.tasks}>
                 <Text style={styles.tasksCounter}></Text>
@@ -27,8 +25,8 @@ const styles = StyleSheet.create({
 
     container: {
         paddingHorizontal: 24,
-        paddingBottom: 120,
-        backgroundColor: '#57606a',
+        paddingBottom: 75,
+        backgroundColor: '#1D3557',
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: 'row'
@@ -46,7 +44,9 @@ const styles = StyleSheet.create({
         color: '#FFF',
     },
     imageContainer: {
+        fontSize: 45,
         marginTop: 60,
-        fontFamily: 'Roboto-Bold'
+        color: 'white',
+        fontWeight: 'bold'
     }
 });

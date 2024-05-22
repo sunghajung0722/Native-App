@@ -27,41 +27,44 @@ export function Input() {
             button: 'close',
         })
 
-        const newTask = { text };
+        const newTask = { id: task.length + 1, title: text };
         setTask([...task, newTask]);
         setText('');
+
+
     }
 
 
 
     return (
         <View >
-            <AlertNotificationRoot>
-                <View style={styles.inputContainer}>
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Add Task"
-                        placeholderTextColor="#B2B2B2"
-                        returnKeyType="send"
-                        selectionColor="#666666"
-                        value={text}
-                        onChangeText={setText}
-                        onSubmitEditing={handleAddNewTask}
-                    />
+            <View style={styles.inputContainer}>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Add Task"
+                    placeholderTextColor="#B2B2B2"
+                    returnKeyType="send"
+                    selectionColor="#666666"
+                    value={text}
+                    onChangeText={setText}
+                    onSubmitEditing={handleAddNewTask}
+                />
 
-                    <TouchableOpacity
-                        testID="add-new-task-button"
-                        activeOpacity={0.7}
-                        style={styles.addButton}
-                        onPress={handleAddNewTask}
-                    >
-                        <AntDesign name="plus" size={24} color="black" />
-                    </TouchableOpacity>
-                </View>
-            </AlertNotificationRoot>
+                <TouchableOpacity
+                    testID="add-new-task-button"
+                    activeOpacity={0.7}
+                    style={styles.addButton}
+                    onPress={handleAddNewTask}
+                >
+                    <AlertNotificationRoot>
+                        <AntDesign name="plus" style={{ marginTop: 15 }} size={24} color="black" />
+                    </AlertNotificationRoot>
+                </TouchableOpacity>
+            </View>
         </View >
     )
 }
+
 
 const styles = StyleSheet.create({
     inputContainer: {
@@ -71,7 +74,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 50,
+        marginBottom: 1,
     },
     input: {
         flex: 1,

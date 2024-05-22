@@ -5,18 +5,18 @@ import { StyleSheet, TextInput, View, Image } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 
-export function Task({ task }) {
+export function Task({ _id, index }) {
 
-
+    console.log(index)
 
     return (
-        <View style={styles.inputContainer}>
+        <View style={styles.inputContainer} index={index}>
             <BouncyCheckbox
                 style={styles.input}
                 size={20}
                 fillColor="green"
                 unFillColor="#FFFFFF"
-                text={task.text}
+                text={_id.title}
                 iconStyle={{ borderColor: "red" }}
                 innerIconStyle={{ borderWidth: 2 }}
                 onPress={(isChecked: boolean) => { console.log(isChecked) }}
@@ -32,10 +32,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
         borderRadius: 5,
         marginLeft: 20,
-        marginTop: 20,
+        marginTop: 15,
         marginHorizontal: 20,
         flexDirection: 'row',
         alignItems: 'center',
+
     },
     input: {
         flex: 1,
