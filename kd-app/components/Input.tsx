@@ -1,21 +1,23 @@
+import { addTask } from '@/app/(tabs)';
 import AntDesign from '@expo/vector-icons/AntDesign';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet, TextInput, TouchableOpacity, View, Image } from 'react-native';
 
-interface Input {
-    addTask: (task: string) => void;
-}
 
-export function Input({ addTask }: Input) {
-    const [task, setTask] = useState('');
+
+export function Input() {
+
+    const { task, setTask } = useContext(addTask);
+    // const [task, setTask] = useState('');
+    const [text, setText] = useState('');
 
     function handleAddNewTask() {
-        if (!task) {
-            return;
-        }
-        addTask(task);
-        setTask('');
+        const newTask = { text };
+        setTask([...task, newTask]);
+        setText('');
     }
+    
+
 
     return (
         <View style={styles.inputContainer}>
@@ -25,8 +27,8 @@ export function Input({ addTask }: Input) {
                 placeholderTextColor="#B2B2B2"
                 returnKeyType="send"
                 selectionColor="#666666"
-                value={task}
-                onChangeText={setTask}
+                value={text}
+                onChangeText={setText}
                 onSubmitEditing={handleAddNewTask}
             />
             <TouchableOpacity

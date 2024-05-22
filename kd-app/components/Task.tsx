@@ -1,22 +1,13 @@
+import { addTask } from '@/app/(tabs)';
 import AntDesign from '@expo/vector-icons/AntDesign';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet, TextInput, View, Image } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
-interface Task {
-    addTask: (task: string) => void;
-}
 
-export function Task({ addTask }: Task) {
-    const [task, setTask] = useState('');
+export function Task({ task }) {
 
-    function handleAddNewTask() {
-        if (!task) {
-            return;
-        }
-        addTask(task);
-        setTask('');
-    }
+
 
     return (
         <View style={styles.inputContainer}>
@@ -25,23 +16,14 @@ export function Task({ addTask }: Task) {
                 size={20}
                 fillColor="green"
                 unFillColor="#FFFFFF"
-                text="Sample 1"
+                text={task.text}
                 iconStyle={{ borderColor: "red" }}
                 innerIconStyle={{ borderWidth: 2 }}
                 textStyle={{ fontFamily: "JosefinSans-Regular" }}
                 onPress={(isChecked: boolean) => { console.log(isChecked) }}
             />
 
-            {/* <TextInput
-                style={styles.input}
-                placeholder="Sample 1"
-                placeholderTextColor="#B2B2B2"
-                returnKeyType="send"
-                selectionColor="#666666"
-                value={task}
-                onChangeText={setTask}
-                onSubmitEditing={handleAddNewTask}
-            /> */}
+
 
         </View>
     )
