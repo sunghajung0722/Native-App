@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
 
 const Profile = () => {
   return (
+
     <View style={styles.container}>
       <View style={[styles.imageContainer, styles.tempHeight]}>
         <Image
