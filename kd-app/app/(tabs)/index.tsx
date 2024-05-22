@@ -1,6 +1,7 @@
 import App from '@/components/App';
 import { Header } from '@/components/Header';
 import { Input } from '@/components/Input';
+import { Task } from '@/components/Task';
 import { TasksList } from '@/components/Tasklist';
 import { StyleSheet, View } from 'react-native';
 
@@ -17,6 +18,7 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <Header />
       <Input />
+      <Task/>
     </View>
   );
 }
