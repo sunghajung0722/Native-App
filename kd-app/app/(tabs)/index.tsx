@@ -31,8 +31,12 @@ export default function HomeScreen() {
         <Header />
         <Input />
         <ScrollView>
-          {task.reverse().map((_id, index) => {
-            return <Task _id={_id} index={index} />;
+          {task.map((_id, index) => {
+            return (
+              <View key={index}>
+                <Task _id={_id} />
+              </View>
+            );
           })}
         </ScrollView>
 

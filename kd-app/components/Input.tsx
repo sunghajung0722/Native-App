@@ -3,6 +3,8 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import React, { useContext, useState } from 'react';
 import { StyleSheet, TextInput, TouchableOpacity, View, Image, Button } from 'react-native';
 import { ALERT_TYPE, Dialog, AlertNotificationRoot, Toast } from 'react-native-alert-notification';
+import "react-native-get-random-values";
+import { v4 as uuidv4 } from 'uuid';
 
 export function Input() {
 
@@ -27,10 +29,9 @@ export function Input() {
             button: 'close',
         })
 
-        const newTask = { id: task.length + 1, title: text };
+        const newTask = { id: uuidv4(), title: text };
         setTask([...task, newTask]);
         setText('');
-
 
     }
 
