@@ -1,10 +1,7 @@
 
-import { Header } from '@/components/Header';
-import { Input } from '@/components/Input';
-import { Task } from '@/components/Task';
-import { useState } from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
-import { addTask } from '@/components/Context/TodoContext';
+
+import { StyleSheet } from 'react-native';
+import Todo from '../_todo';
 
 const styles = StyleSheet.create({
     container: {
@@ -14,11 +11,16 @@ const styles = StyleSheet.create({
 })
 
 
-export default function HomeScreen() {
+const completedTask = () => {
 
+    const test = 'test';
 
-
+    return (
+        <Todo test={test} />
+    );
 }
+
+export default completedTask;
 
 
 

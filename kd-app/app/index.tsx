@@ -5,6 +5,7 @@ import { Task } from '@/components/Task';
 import { useState } from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import { addTask } from '@/components/Context/TodoContext';
+import App from '@/components/App';
 
 const styles = StyleSheet.create({
     container: {
@@ -16,6 +17,9 @@ const styles = StyleSheet.create({
 
 export default function HomeScreen() {
 
+    return (
+        <App />
+    )
 
 
 }

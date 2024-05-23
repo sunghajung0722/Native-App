@@ -9,13 +9,15 @@ import uuid from 'react-native-uuid';
 import Greetings from './Greetings';
 
 
-export function Input() {
+export function Input({ }) {
 
     const { task, setTask } = useContext<any>(addTask);
     // const [task, setTask] = useState('');
     const [text, setText] = useState<string>('');
 
     function handleAddNewTask() {
+
+
 
         if (!text) {
             return Dialog.show({
@@ -32,15 +34,15 @@ export function Input() {
             button: 'close',
         })
 
-        const newTask = { id: uuid, title: text, status: 'pending' };
+        const newTask = { id: uuid.v4(), title: text, status: 'pending' };
         setTask([...task, newTask]);
         setText('');
 
-        console.log(task)
+
 
     }
 
-
+    console.log(task)
 
     return (
         <View >

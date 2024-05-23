@@ -1,6 +1,5 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Drawer } from 'expo-router/drawer';
-import BackButton from '@/components/BackButton';
 
 
 export default function Layout() {
@@ -8,7 +7,7 @@ export default function Layout() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer>
         <Drawer.Screen
-          name="home/index" // This is the name of the page and must match the url from root
+          name="index" // This is the name of the page and must match the url from root
           options={{
             drawerLabel: 'Home',
             title: '',
@@ -29,7 +28,6 @@ export default function Layout() {
           }}
         />
       </Drawer>
-      <BackButton />
     </GestureHandlerRootView>
   );
 }

@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 })
 
 
-export default function HomeScreen() {
+export default function Todo() {
 
     const [task, setTask] = useState([]);
 

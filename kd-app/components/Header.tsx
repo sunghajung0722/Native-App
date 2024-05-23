@@ -1,7 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { useFonts } from 'expo-font';
 
 export function Header() {
+
+
+    const [fontsLoaded, fontError] = useFonts({
+        'qilka-Bold': require('../assets/fonts/Qilka-Bold.otf'),
+    });
+
+    if (!fontsLoaded && !fontError) {
+        return null;
+    }
+
 
     return (
         <View style={styles.container}>
@@ -19,8 +30,8 @@ export function Header() {
 const styles = StyleSheet.create({
 
     container: {
-        paddingHorizontal: 24,
-        paddingBottom: 75,
+        paddingHorizontal: 25,
+        paddingBottom: 60,
         backgroundColor: '#EFF1F2',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -40,7 +51,8 @@ const styles = StyleSheet.create({
     },
     imageContainer: {
         fontSize: 45,
-        marginTop: 60,
-        fontWeight: 'bold'
+        marginTop: 10,
+        fontFamily: 'qilka-Bold',
+        color: '#FAC600'
     }
 });
