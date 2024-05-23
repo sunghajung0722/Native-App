@@ -1,14 +1,18 @@
 
-import { FontAwesome } from '@expo/vector-icons';
-import { faMugSaucer, faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+
+import { faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { StyleSheet, TextInput, View, Image } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
+
 export function Task({ _id }) {
 
+
     return (
+
         <View style={styles.inputContainer} >
+
             <BouncyCheckbox
                 style={styles.input}
                 size={20}
@@ -20,6 +24,7 @@ export function Task({ _id }) {
             />
             <FontAwesomeIcon style={styles.editButton} size={20} icon={faPen} />
             <FontAwesomeIcon style={styles.deleteButton} size={20} icon={faTrashCan} />
+
         </View>
     )
 }

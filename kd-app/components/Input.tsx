@@ -5,6 +5,10 @@ import { StyleSheet, TextInput, TouchableOpacity, View, Image, Button } from 're
 import { ALERT_TYPE, Dialog, AlertNotificationRoot, Toast } from 'react-native-alert-notification';
 import "react-native-get-random-values";
 import uuid from 'react-native-uuid';
+
+import Greetings from './Greetings';
+
+
 export function Input() {
 
     const { task, setTask } = useContext<any>(addTask);
