@@ -1,16 +1,15 @@
-import { addTask } from '@/app/(tabs)';
+import { addTask } from '@/components/Context/TodoContext';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import React, { useContext, useState } from 'react';
 import { StyleSheet, TextInput, TouchableOpacity, View, Image, Button } from 'react-native';
 import { ALERT_TYPE, Dialog, AlertNotificationRoot, Toast } from 'react-native-alert-notification';
 import "react-native-get-random-values";
-import { v4 as uuidv4 } from 'uuid';
-
+import uuid from 'react-native-uuid';
 export function Input() {
 
-    const { task, setTask } = useContext(addTask);
+    const { task, setTask } = useContext<any>(addTask);
     // const [task, setTask] = useState('');
-    const [text, setText] = useState('');
+    const [text, setText] = useState<string>('');
 
     function handleAddNewTask() {
 
@@ -29,7 +28,7 @@ export function Input() {
             button: 'close',
         })
 
-        const newTask = { id: uuidv4(), title: text };
+        const newTask = { id: uuid, title: text };
         setTask([...task, newTask]);
         setText('');
 

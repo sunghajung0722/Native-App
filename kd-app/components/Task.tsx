@@ -1,11 +1,10 @@
-import { addTask } from '@/app/(tabs)';
-import AntDesign from '@expo/vector-icons/AntDesign';
 import React, { useContext, useState } from 'react';
 import { StyleSheet, TextInput, View, Image } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 
 export function Task({ _id }) {
+
     return (
         <View style={styles.inputContainer} >
             <BouncyCheckbox
