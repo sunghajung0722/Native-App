@@ -42,7 +42,6 @@ export function Input({ }) {
 
     }
 
-    console.log(task)
 
     return (
         <View >

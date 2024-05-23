@@ -2,10 +2,8 @@
 import { Header } from '@/components/Header';
 import { Input } from '@/components/Input';
 import { Task } from '@/components/Task';
-import { useState } from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
-import { addTask } from '@/components/Context/TodoContext';
-import App from '@/components/App';
+
 
 const styles = StyleSheet.create({
     container: {
@@ -15,13 +13,21 @@ const styles = StyleSheet.create({
 })
 
 
-export default function HomeScreen() {
+export default function Todo() {
+
+
 
     return (
-        <App />
-    )
+        <View style={styles.container}>
 
+            <Header />
+            <Input />
+            <ScrollView>
+                <Task />
+            </ScrollView>
+        </View>
 
+    );
 }
 
 

@@ -2,30 +2,42 @@
 
 import { faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { StyleSheet, TextInput, View, Image } from 'react-native';
+import { useContext } from 'react';
+import { StyleSheet, TextInput, View, Image, Text } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
+import { addTask } from './Context/TodoContext';
 
 
-export function Task({ _id }) {
+export function TaskComplete() {
+
+    const { task, setTask } = useContext<any>(addTask);
 
     return (
-
-        <View style={styles.inputContainer} >
-
-            <BouncyCheckbox
-                style={styles.input}
-                size={20}
-                fillColor="#FAC600"
-                unFillColor="#FFFFFF"
-                text={_id.title}
-                iconStyle={{ borderColor: "red" }}
-                innerIconStyle={{ borderWidth: 2 }}
-            />
-            <FontAwesomeIcon style={styles.editButton} size={20} icon={faPen} />
-            <FontAwesomeIcon style={styles.deleteButton} size={20} icon={faTrashCan} />
-
-        </View>
+        <>
+            {
+                task.map((_id, index) => {
+                    return (
+                        < View style={styles.inputContainer} key={index}>
+                            <BouncyCheckbox
+                                style={styles.input}
+                                size={20}
+                                fillColor="#FAC600"
+                                unFillColor="#FFFFFF"
+                                text={_id.title}
+                                iconStyle={{ borderColor: "red" }}
+                                innerIconStyle={{ borderWidth: 2 }}
+                            />
+                            <FontAwesomeIcon style={styles.editButton} size={20} icon={faPen} />
+                            <FontAwesomeIcon style={styles.deleteButton} size={20} icon={faTrashCan} />
+                        </View >
+                    )
+                })
+            }
+        </>
     )
+    //     })
+    // }
+
 }
 
 const styles = StyleSheet.create({
