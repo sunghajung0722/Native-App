@@ -28,9 +28,11 @@ export function Input() {
             button: 'close',
         })
 
-        const newTask = { id: uuid, title: text };
+        const newTask = { id: uuid, title: text, status: 'pending' };
         setTask([...task, newTask]);
         setText('');
+
+        console.log(task)
 
     }
 
@@ -61,7 +63,11 @@ export function Input() {
                     </AlertNotificationRoot>
                 </TouchableOpacity>
             </View>
+
+
         </View >
+
+
     )
 }
 

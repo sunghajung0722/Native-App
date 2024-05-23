@@ -9,7 +9,7 @@ import { addTask } from '@/components/Context/TodoContext';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1D3557'
+    backgroundColor: '#EFF1F2'
   }
 })
 
