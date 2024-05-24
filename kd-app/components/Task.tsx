@@ -2,22 +2,23 @@
 
 import { faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { StyleSheet, TextInput, View, Image, Text } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-import { addTask } from './Context/TodoContext';
+import { addTask, checkBox } from './Context/TodoContext';
 
 
 export function Task() {
 
     const { task, setTask } = useContext<any>(addTask);
+    const { isClick, setClick } = useContext<any>(checkBox);
 
     return (
         <>
             {
                 task.map((_id, index) => {
                     return (
-                        < View style={styles.inputContainer} >
+                        < View style={styles.inputContainer} key={index}>
                             <BouncyCheckbox
                                 style={styles.input}
                                 size={20}
@@ -26,6 +27,7 @@ export function Task() {
                                 text={_id.title}
                                 iconStyle={{ borderColor: "red" }}
                                 innerIconStyle={{ borderWidth: 2 }}
+                                onPress={(isChecked: boolean) => { setClick(isChecked) }}
                             />
                             <FontAwesomeIcon style={styles.editButton} size={20} icon={faPen} />
                             <FontAwesomeIcon style={styles.deleteButton} size={20} icon={faTrashCan} />
@@ -35,8 +37,6 @@ export function Task() {
             }
         </>
     )
-    //     })
-    // }
 
 }
 

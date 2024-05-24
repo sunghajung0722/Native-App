@@ -1,4 +1,4 @@
-import { addTask } from '@/components/Context/TodoContext';
+import { addTask, checkBox } from '@/components/Context/TodoContext';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import React, { useContext, useState } from 'react';
 import { StyleSheet, TextInput, TouchableOpacity, View, Image, Button } from 'react-native';
@@ -9,11 +9,12 @@ import uuid from 'react-native-uuid';
 import Greetings from './Greetings';
 
 
-export function Input({ }) {
+export function Input() {
 
     const { task, setTask } = useContext<any>(addTask);
-    // const [task, setTask] = useState('');
+    const { isClick, setClick } = useContext<any>(checkBox);
     const [text, setText] = useState<string>('');
+    const [getStatus, setStatus] = useState<string>('');
 
     function handleAddNewTask() {
 
@@ -38,9 +39,20 @@ export function Input({ }) {
         setTask([...task, newTask]);
         setText('');
 
+        // setStatus(task.map(_id => {
+        //     _id.id === _id.id ? { ...task, status: 'complete' } : task
+        // }));
 
 
     }
+
+
+
+
+
+
+
+
 
 
     return (

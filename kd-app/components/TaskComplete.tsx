@@ -5,12 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { useContext } from 'react';
 import { StyleSheet, TextInput, View, Image, Text } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-import { addTask } from './Context/TodoContext';
+import { addTask, checkBox } from './Context/TodoContext';
 
 
 export function TaskComplete() {
 
     const { task, setTask } = useContext<any>(addTask);
+    const { isClick, setClick } = useContext<any>(checkBox);
 
     return (
         <>
