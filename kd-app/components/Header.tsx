@@ -5,13 +5,13 @@ import { useFonts } from 'expo-font';
 export function Header() {
 
 
-    const [fontsLoaded, fontError] = useFonts({
-        'qilka-Bold': require('../assets/fonts/Qilka-Bold.otf'),
-    });
+    // const [fontsLoaded, fontError] = useFonts({
+    //     'qilka-Bold': require('../assets/fonts/Qilka-Bold.otf'),
+    // });
 
-    if (!fontsLoaded && !fontError) {
-        return null;
-    }
+    // if (!fontsLoaded && !fontError) {
+    //     return null;
+    // }
 
 
     return (
@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
     imageContainer: {
         fontSize: 45,
         marginTop: 10,
-        fontFamily: 'qilka-Bold',
         color: '#FAC600'
     }
 });
