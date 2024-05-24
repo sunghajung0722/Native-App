@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useFonts } from 'expo-font';
 
-export function Header() {
+export function HeaderCompleted() {
 
 
     const [fontsLoaded, fontError] = useFonts({
@@ -17,7 +17,7 @@ export function Header() {
     return (
         <View style={styles.container}>
             <TouchableOpacity>
-                <Text style={styles.imageContainer} >TO.DO</Text>
+                <Text style={styles.imageContainer} >Completed Task</Text>
             </TouchableOpacity>
             <View style={styles.tasks}>
                 <Text style={styles.tasksCounter}></Text>
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 
     container: {
         paddingHorizontal: 25,
-        paddingBottom: 60,
+        paddingBottom: 5,
         backgroundColor: '#EFF1F2',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         color: '#FFF',
     },
     imageContainer: {
-        fontSize: 45,
+        fontSize: 40,
         marginTop: 10,
         color: '#FAC600',
         fontFamily: 'Qilka-Bold'

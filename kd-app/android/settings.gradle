@@ -1,4 +1,4 @@
-rootProject.name = 'kdapp'
+rootProject.name = 'kd-app'
 
 dependencyResolutionManagement {
   versionCatalogs {
