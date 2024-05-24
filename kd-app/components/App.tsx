@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
-
+import { CameraView, useCameraPermissions } from 'expo-camera';
 export default class App extends React.Component {
   state = {
     appIsReady: false,
@@ -33,20 +33,40 @@ export default class App extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}>HOME</Text>
-      </View>
+      <CameraView style={styles.camera} >
+        <View>
+          <TouchableOpacity style={styles.button} >
+            <Text style={styles.text}>Flip Camera</Text>
+          </TouchableOpacity>
+        </View>
+      </CameraView>
     )
   }
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
   },
+  camera: {
+    flex: 1,
+  },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: 'transparent',
+    margin: 64,
+  },
+  button: {
+    flex: 1,
+    alignSelf: 'flex-end',
+    alignItems: 'center',
+  },
   text: {
+    fontSize: 24,
     fontWeight: 'bold',
+    color: 'white',
   },
 });

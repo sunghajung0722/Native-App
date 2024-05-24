@@ -22,7 +22,6 @@ export default function completedTask() {
     return (
         <SafeAreaView>
             <View>
-                <Text>HOME</Text>
             </View>
         </SafeAreaView>
     )

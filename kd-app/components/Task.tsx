@@ -7,31 +7,19 @@ import { StyleSheet, TextInput, View, Image, Text } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { addTask, checkBox } from './Context/TodoContext';
 import { useFonts } from 'expo-font';
-import { UpdateList, getTodoList } from '@/requests/todorequest';
 
 export function Task() {
 
-    const [getTodoApi, setTodoApi] = useState([]);
-
-    useEffect(() => {
-        getTodoList().then((data) => {
-            setTodoApi(data);
-        });
-    }, [getTodoList]);
-
     const { task, setTask } = useContext<any>(addTask);
     const [fontsLoaded, fontError] = useFonts({
-        'Poppins-Regular': require('../assets/fonts/Ananda-Regular.ttf'),
+        'Poppins-Regular': require('../assets/fonts/Poppins-Regular.ttf'),
     });
     if (!fontsLoaded && !fontError) {
         return null;
     }
 
-
-
-
     const onUpdate = (taskId) => {
-        const filteredList = getTodoApi.map((_task) => {
+        const filteredList = task.map((_task) => {
             if (_task.id === taskId) {
                 // PostList(task)
                 if (_task.status === 'pending') {
@@ -39,18 +27,17 @@ export function Task() {
                 } else {
                     _task.status = 'pending';
                 }
-                UpdateList(_task.id, _task.task, _task.status);
             }
             return _task;
         })
-        setTodoApi(filteredList);
+        setTask(filteredList);
     }
 
 
     return (
         <>
             {
-                getTodoApi.map((_id, index) => {
+                task.map((_id, index) => {
 
                     return (
                         _id.status === 'pending' ?
@@ -61,7 +48,8 @@ export function Task() {
                                     size={20}
                                     fillColor="#FAC600"
                                     unFillColor="#FFFFFF"
-                                    text={_id.task}
+                                    text={_id.title}
+                                    textStyle={{ fontFamily: 'Poppins-Regular' }}
                                     iconStyle={{ borderColor: "red" }}
                                     innerIconStyle={{ borderWidth: 2 }}
                                     onPress={(isChecked: boolean) => { onUpdate(_id.id) }}

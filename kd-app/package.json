@@ -48,7 +48,9 @@
     "react-native-uuid": "^2.0.2",
     "react-native-web": "~0.19.10",
     "sharingan-rn-modal-dropdown": "^1.4.0",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "expo-camera": "~15.0.9",
+    "expo-face-detector": "~12.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

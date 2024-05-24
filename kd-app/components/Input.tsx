@@ -5,9 +5,7 @@ import { StyleSheet, TextInput, TouchableOpacity, View, Image, Button } from 're
 import { ALERT_TYPE, Dialog, AlertNotificationRoot, Toast } from 'react-native-alert-notification';
 import "react-native-get-random-values";
 import uuid from 'react-native-uuid';
-
-import Greetings from './Greetings';
-import { PostList } from '@/requests/todorequest';
+import { useFonts } from 'expo-font';
 
 
 export function Input() {
@@ -16,10 +14,14 @@ export function Input() {
     const { isClick, setClick } = useContext<any>(checkBox);
     const [text, setText] = useState<string>('');
     const [getStatus, setStatus] = useState<string>('');
+    const [fontsLoaded, fontError] = useFonts({
+        'Poppins-Regular': require('../assets/fonts/Poppins-Regular.ttf'),
+    });
+    if (!fontsLoaded && !fontError) {
+        return null;
+    }
 
     function handleAddNewTask() {
-
-
 
         if (!text) {
             return Dialog.show({
@@ -36,24 +38,10 @@ export function Input() {
             button: 'close',
         })
 
-        // const newTask = { id: uuid.v4(), title: text, status: 'pending' };
-        // setTask([...task, newTask]);
-        PostList(text);
+        const newTask = { id: uuid.v4(), title: text, status: 'pending' };
+        setTask([...task, newTask]);
         setText('');
-
-        // setStatus(task.map(_id => {
-        //     _id.id === _id.id ? { ...task, status: 'complete' } : task
-        // }));
-
-
     }
-
-
-
-
-
-
-
 
 
 
@@ -95,7 +83,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         backgroundColor: '#FFF',
         borderRadius: 5,
-        marginTop: -28,
+        marginTop: -50,
         marginHorizontal: 20,
         flexDirection: 'row',
         alignItems: 'center',
@@ -103,14 +91,15 @@ const styles = StyleSheet.create({
     },
     input: {
         flex: 1,
-        height: 56,
+        height: 50,
         paddingHorizontal: 20,
         backgroundColor: '#FFF',
         borderTopLeftRadius: 5,
         borderBottomLeftRadius: 5,
         borderRightWidth: 1,
         borderRightColor: '#EBEBEB',
-        color: '#666666'
+        color: '#666666',
+        fontFamily: 'Poppins-Regular'
 
     },
     addButton: {

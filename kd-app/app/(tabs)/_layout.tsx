@@ -43,6 +43,13 @@ export default function Layout() {
                                 title: '',
                             }}
                         />
+                        <Drawer.Screen
+                            name="camera" // This is the name of the page and must match the url from root
+                            options={{
+                                drawerLabel: 'Barcode Scanner',
+                                title: '',
+                            }}
+                        />
                     </Drawer>
                 </GestureHandlerRootView>
             </checkBox.Provider>
