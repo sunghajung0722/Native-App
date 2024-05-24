@@ -2,26 +2,39 @@
 
 import { faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { StyleSheet, TextInput, View, Image, Text } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { addTask, checkBox } from './Context/TodoContext';
+import { UpdateList, getTodoList } from '@/requests/todorequest';
 
 
 export function TaskComplete() {
 
     const { task, setTask } = useContext<any>(addTask);
     const { isClick, setClick } = useContext<any>(checkBox);
+    const [getTodoApi, setTodoApi] = useState([]);
+
+
+
+    useEffect(() => {
+        getTodoList().then((data) => {
+
+            setTodoApi(data);
+        });
+    }, [getTodoList]);
+
 
 
     const onUpdate = (taskId) => {
-        const filteredList = task.map((_task) => {
+        const filteredList = getTodoApi.map((_task) => {
             if (_task.id === taskId) {
                 if (_task.status === 'pending') {
                     _task.status = 'completed';
                 } else {
                     _task.status = 'pending';
                 }
+                UpdateList(_task.id, _task.task, _task.status);
             }
             return _task;
         })
@@ -33,16 +46,17 @@ export function TaskComplete() {
     return (
         <>
             {
-                task.map((_id, index) => {
+                getTodoApi.map((_id, index) => {
                     return (
                         _id.status === 'completed' ?
                             < View style={styles.inputContainer} key={index}>
                                 <BouncyCheckbox
+                                    key={index}
                                     style={styles.input}
                                     size={20}
                                     fillColor="#FAC600"
                                     unFillColor="#FFFFFF"
-                                    text={_id.title}
+                                    text={_id.task}
                                     isChecked={true}
                                     iconStyle={{ borderColor: "red" }}
                                     innerIconStyle={{ borderWidth: 2 }}

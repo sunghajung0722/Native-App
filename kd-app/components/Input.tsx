@@ -7,6 +7,7 @@ import "react-native-get-random-values";
 import uuid from 'react-native-uuid';
 
 import Greetings from './Greetings';
+import { PostList } from '@/requests/todorequest';
 
 
 export function Input() {
@@ -35,8 +36,9 @@ export function Input() {
             button: 'close',
         })
 
-        const newTask = { id: uuid.v4(), title: text, status: 'pending' };
-        setTask([...task, newTask]);
+        // const newTask = { id: uuid.v4(), title: text, status: 'pending' };
+        // setTask([...task, newTask]);
+        PostList(text);
         setText('');
 
         // setStatus(task.map(_id => {
